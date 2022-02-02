@@ -1,14 +1,26 @@
 import 'package:flutter/material.dart';
 
-class HomeScreen extends StatelessWidget {
-  const HomeScreen({Key? key}) : super(key: key);
+class HomeScreen extends StatefulWidget {
+  const HomeScreen({ Key? key }) : super(key: key);
+
+  @override
+  _HomeScreenState createState() => _HomeScreenState();
+}
+
+class _HomeScreenState extends State<HomeScreen> {
+
+  int count = 0;
 
   void decrement() {
-    print("Decrement");
+    setState(() {
+      count--;
+    });
   }
 
   void increment() {
-    print("Increment");
+    setState(() {
+      count++;
+    });
   }
 
   @override
@@ -33,11 +45,11 @@ class HomeScreen extends StatelessWidget {
                 fontWeight: FontWeight.w700,
               ),
             ),
-            const Padding(
-              padding: EdgeInsets.all(40),
+             Padding(
+              padding: const EdgeInsets.all(40),
               child: Text(
-                "0",
-                style: TextStyle(
+                count.toString(),
+                style: const TextStyle(
                   fontSize: 100,
                   color: Colors.black,
                 ),
